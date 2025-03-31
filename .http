@@ -1,0 +1,51 @@
+### Login
+POST  http://localhost:4000/auth/login  
+Content-Type: application/json
+
+{
+    "email": "mariagracias@gmail.com",
+    "password": "123456"
+}
+
+### Crear Nuevo Usuario
+POST http://localhost:4000/usuario  
+Content-Type: application/json
+
+{
+    "name": "Aldo",
+    "email": "mariagracias@gmail.com",
+    "password": "123456"
+}
+
+### Crear Nueva Postulacion
+POST http://localhost:4000/postulacion
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjMsImlhdCI6MTc0MzQ0NzI3NSwiZXhwIjoxNzQ1ODQ3Mjc1fQ.kKFXuqg7s8yvDSX-NgRLZ2aGhn9Z7UQedfv8c-HaxzE
+
+{
+    "titulo_puesto": "Desarrollador Backend",
+    "empresa": "Google",
+    "estado": "pendiente",
+    "fuente": "Linkedin"
+}
+
+### Obtener todas las postulaciones
+GET http://localhost:4000/postulacion
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjMsImlhdCI6MTc0MzQ0NzI3NSwiZXhwIjoxNzQ1ODQ3Mjc1fQ.kKFXuqg7s8yvDSX-NgRLZ2aGhn9Z7UQedfv8c-HaxzE
+
+### Editar una postulacion
+PUT http://localhost:4000/postulacion/34
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjMsImlhdCI6MTc0MzQ0NzI3NSwiZXhwIjoxNzQ1ODQ3Mjc1fQ.kKFXuqg7s8yvDSX-NgRLZ2aGhn9Z7UQedfv8c-HaxzE
+
+{
+    "titulo_puesto": "Desarrollador Frontend",
+    "empresa": "Amazong"
+}
+
+### Eliminar una postulacion
+DELETE http://localhost:4000/postulacion/34
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjMsImlhdCI6MTc0MzQ0NzI3NSwiZXhwIjoxNzQ1ODQ3Mjc1fQ.kKFXuqg7s8yvDSX-NgRLZ2aGhn9Z7UQedfv8c-HaxzE
+
