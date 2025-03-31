@@ -1,15 +1,22 @@
-import express from "express";
-import cors from "cors";
+import { app } from "./app.js";
+import { sequelize } from "./config/dataBase.js";
 
 const PORT = process.env.PORT || 3000;
-const app = express();
-app.use(cors());
-app.use(express.json());
 
-app.get("/", (_req, res) => {
-  res.send("¡Servidor iniciado!");
-});
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log("Conexión establecida correctamente");
 
-app.listen(PORT, () => {
-  console.log("Servidor iniciado en el puerto 3000");
-});
+    sequelize.sync();
+  })
+  .then(() => {
+    console.log("Modelos sincronizados con la base de datos");
+
+    app.listen(PORT, () => {
+      console.log("Servidor iniciado en el puerto: ", PORT);
+    });
+  })
+  .catch((error) =>
+    console.error("No se pudo conectar o sincronizar la base de datos:", error)
+  );
